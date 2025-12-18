@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
     profilePicEl.src =
       pending.photoURL ||
       user.photoURL ||
-      "/Nshop/imagens/avatar/default.webp";
+      "/Nshop/imagem/avatar/default.webp";
 
     btnLogout.style.display = "inline-flex";
 
