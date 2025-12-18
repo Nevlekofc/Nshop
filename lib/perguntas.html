@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>nevlek ecomerce</title>
+  <link rel="stylesheet" href="/Nshop/css/index.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Sans-Serif;
+    }
+    body{
+      background: var(--bg-modal);
+    }
+    .line-invisible {
+      width: 100%;
+      margin-top: 80px;
+    }
+    .container {
+      padding: 0 10px;
+      margin: 10px auto;
+      max-width: 900px;
+    }
+    .container h2 {
+      margin-bottom: 15px;
+    }
+    .faq-item {
+      background: var(--bg-card);
+      margin-bottom: 12px;
+      border-radius: 9px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.729);
+    }
+    .faq-questao {
+      padding: 15px 20px;
+      cursor: pointer;
+      font-weight: bold;
+      position: relative;
+    }
+    .faq-questao::after{
+      content: "+";
+      position: absolute;
+      right: 20px;
+    }
+    .faq-item.active .faq-questao::after {
+      content: "-";
+    }
+    .faq-resposta {
+      padding: 0 20px 15px;
+      display: none;
+      font-size: 15px;
+    }
+    .faq-item.active .faq-resposta {
+      display: block;
+    }
+   
+  </style>
+  <nav class="navbar">
+    <button class="toggle" aria-label="Abrir menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <div class="brand">
+      <!-- <img src="imagens/logotipo/nvl_logo.png" alt="Logo" className="logo"> -->
+      <span class="titulo" id="titulo">n<span>Shop</span></span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="/Nshop/index.html">Inicio</a></li>
+      <li><a href="#" id="linkPerfil">Perfil</a></li>
+      <li><a href="/Nshop/lib/about.html">About</a></li>
+      <li><a href="/Nshop/lib/perguntas.html">Ajuda</a></li>
+    </ul>
+  </nav>
+</head>
+<body>
+
+  <div class="line-invisible"></div>
+  <div class="container">
+    <h2>Perguntas frequentes (FAQ)</h2>
+    
+    <div class="faq-item">
+      <h3 class="faq-questao">Como faço um pedido?</h3>
+      <div class="faq-resposta">Escolha os produtos, adicione ao carrinho e clique em "Pagar". Siga os passos informados.</div>
+    </div>
+    
+    <div class="faq-item">
+      <h3 class="faq-questao">Quais formas de pagamento são aceitas?</h3>
+      <div class="faq-resposta">Aceitamos Visa, PayPal, bancos nacionais e criptomoedas USDT.</div>
+    </div>
+    
+    <div class="faq-item">
+      <h3 class="faq-questao">Posso rastrear meu pedido?</h3>
+      <div class="faq-resposta">Sim, após o envio você receberá um código de rastreio por e-mail.</div>
+    </div>
+    
+    <div class="faq-item">
+      <h3 class="faq-questao">Posso cancelar meu pedido após o pagamento?</h3>
+      <div class="faq-resposta">Sim, é possível cancelar seu pedido enquanto ele ainda não foi enviado. Acesse "Meus Pedidos" e verifique se a opção "Cancelar" está disponível.</div>
+    </div>
+    
+    <div class="faq-item">
+      <h3 class="faq-questao">Por que meu pagamento foi recusado?</h3>
+      <div class="faq-resposta">Isso pode ocorrer por dados incorretos, saldo insuficiente ou restrições no seu cartão. Tente novamente ou use outro método de pagamento.</div>
+    </div>
+    
+    <div class="faq-item">
+      <h3 class="faq-questao">Como excluir minha conta?</h3>
+      <div class="faq-resposta">Você pode solicitar a exclusão da conta acessando o menu de perfil e clicando em "Excluir conta". Seus dados serão removidos permanentemente após confirmação.</div>
+    </div>
+    
+    <div class="faq-item">
+      <h3 class="faq-questao">Esqueci minha senha, e agora?</h3>
+      <div class="faq-resposta">Basta acessar a página de login e clicar em “Esqueci minha senha”. Enviaremos um link para redefinir sua senha no e-mail cadastrado.</div>
+    </div>
+    
+    <div class="faq-item">
+      <h3 class="faq-questao">Vocês entregam em todo o país?</h3>
+      <div class="faq-resposta">Sim, realizamos entregas em todas as províncias e distritos do país por meio de transportadoras parceiras. O prazo e valor do frete variam conforme a localização.</div>
+    </div>
+    
+    <div class="faq-item">
+      <h3 class="faq-questao">Meu pedido não chegou, o que faço?</h3>
+      <div class="faq-resposta">Verifique o status do seu pedido em "Meus Pedidos". Se houver atraso ou inconsistência, entre em contato com nosso suporte para investigarmos com a transportadora.</div>
+    </div>
+    
+    <div class="faq-item">
+      <h3 class="faq-questao">E se o produto vier com defeito?</h3>
+      <div class="faq-resposta">Caso receba um produto com defeito, entre em contato com nosso suporte em até 7 dias após o recebimento. Faremos a troca ou o reembolso conforme o caso.</div>
+    </div>
+    
+    <div class="faq-item">
+      <h3 class="faq-questao">Como entro em contato com o suporte?</h3>
+      <div class="faq-resposta">Você pode usar o botão "Suporte" no rodapé ou enviar um e-mail para<a href=" mailto:nevlekxr1@gmail.com"> nevlekxr1@gmail.com</a></div>
+    </div>
+    
+  </div>
+  	
+  <!-- rodapé -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-header">
+      <h3 class="titulo">n<span>Shop</span></h3>
+    </div>
+
+    <div class="footer-content">
+      <div class="redes-social">
+        <strong>Contactos</strong>
+        <ul class="icones-redes">
+          <li><a href="https://www.instagram.com/kelven_antonioxr1?igsh=eGF4a3NpOTVyaXBs"> <i class="fab fa-instagram"></i>Instagram</a></li>
+          <li><a href="mailto:nevlekxr1@gmail.com"> <i class="far fa-envelope"></i>  E-mail</a></li>
+          <li><a href="https://vm.tiktok.com/"> <i class="fab fa-tiktok"></i>  TikTok</a></li>
+          <li><a href="https://github.com/Nevlekofc"><i class="fab fa-github"></i> GitHub</a></li>
+        </ul>
+      </div>
+
+      <ul class="rodape">
+        <strong>Informações</strong>
+       <!--  <li><a href="#"><i class="fas fa-user-shield"></i> Políticas e Privacidade</a></li> -->
+        <li><a href="/Nshop/lib/politica-de-cookies.html"><i class="fas fa-cookie-bite"></i> Cookies</a></li>
+        <li><a href="/Nshop/lib/perguntas.html"><i class="fas fa-question-circle"></i> Perguntas Frequentes</a></li>
+        <li><a href="/Nshop/lib/suport.html"><i class="fas fa-headset"></i> Suporte</a></li>
+      </ul>
+    </div>
+<div class="linha"></div>
+
+    <div class="direitos-reser">
+      &copy; 2025 NShop. Todos os direitos reservados.
+    </div>
+  </div>
+</footer>
+  
+   <script src="/Nshop/js/index.js"></script>
+  <script src="/Nshop/js/global.js" defer></script>
+  <script>
+    document.querySelectorAll('.faq-questao').forEach(k => {
+      k.addEventListener('click', () =>  {
+      k.parentElement.classList.toggle('active')})
+    })
+  </script>
+  <script>
+  // JS para abrir/fechar menu MOBILE
+  const toggle = document.querySelector('.toggle')
+  const navLinks = document.querySelector('.nav-links')
+  
+  toggle.addEventListener('click', () => {
+    const expanded = toggle.getAttribute('aria-expanded') === true
+    toggle.setAttribute('aria-expanded', !expanded)
+    navLinks.classList.toggle('open')
+    toggle.classList.toggle('active')
+  })
+    // Fecha o menu ao aumentar tela
+    window.addEventListener('resize', () => {
+      if(window.innerWidth > 900) {
+        navLinks.classList.remove('open')
+        toggle.classList.remove('active')
+        toggle.setAttribute('aria-expanded', false)
+      }
+    })
+   // mantem o link seleçionado na navbar
+const links = document.querySelectorAll('.nav-links a');
+const currentPath = window.location.pathname.split('/').pop(); // pega só o arquivo atual
+
+links.forEach(link => {
+  const linkPath = link.getAttribute('href').split('/').pop(); // pega só o arquivo do link
+
+  if (linkPath === currentPath) {
+    link.classList.add('active');
+  }
+});
+</script>
+</body>
+</html>

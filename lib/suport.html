@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/Nshop/css/index.css">
+  <style>
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  body {
+    background: var(--bg-modal);
+  }
+  .tollbar {
+      color: #fff;
+      background: #04b3c0ee;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      display: flex;
+      height: 60px;
+    }
+    .sub-tollbar {
+      text-align: center;
+    }
+    a {
+      color: #fff;
+      outline: none;
+      text-decoration: none;
+    }
+    .botao-voltar {
+      height:45px;
+      width: 55px;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      margin: 0;
+      border: none;
+      left: 0;
+      background: transparent;
+    }
+    .botao-voltar:houver {
+      color: #42ade8d6;
+    }
+    .arrow {
+      height: 100%;
+      width: 100%;
+    }
+    .container-suport {
+    border-radius: 13px;
+    padding: 12px 16px;
+    margin: 70px auto 0 auto;
+    width: calc(100% - 1.5rem);
+    max-width: 900px;
+    background: var(--bg-modal);
+    box-sizing: border-box;
+    }
+ /* Estilo geral do formulário */
+.form-suporte {
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 1px 4px 10px rgba(14,14,14,0.514);
+  font-family: Arial, sans-serif;
+}
+
+/* Estilo de cada campo (input + label) */
+.campo-form {
+  margin-bottom: 20px; /* Espaço entre os campos */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Label acima do campo */
+.campo-form label {
+  margin-bottom: 8px;       /* Espaço entre o label e o campo */
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+/* Inputs e textarea */
+.campo-form input {
+  outline: none;
+  text-decoration: none;
+  height: 45px;
+}
+.campo-form input,
+.campo-form textarea {
+  padding: 8px;
+  background: var(--bg-input);
+  border-radius: 5px;
+  font-size: 1rem;
+  color: var(--texto);
+  border: 1px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.campo-form input:focus,
+.campo-form textarea:focus {
+  border-color: #04b3c0ee; /* Cor destacada ao focar */
+  outline: none;
+}
+
+/* Botão de envio */
+.botao-enviar {
+background-color: #00eeffc0; /* Cor de fundo do botão */
+  color: #fff;
+  padding: 12px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+/* Efeito hover no botão */
+.botao-enviar:hover {
+  background-color: #17f0ff68;
+}
+ .resultado {
+  text-align: center;
+  margin: 5px;
+}
+ #resultado {
+  color: green;
+}
+/* RESPONSIVIDADE para telas pequenas */
+@media (max-width: 600px) {
+  .form-suporte {
+    padding: 15px;
+  }
+
+  .botao-enviar {
+    width: 100%; /* Botão ocupa toda a largura */
+  }
+}
+footer {
+  text-align: center;
+  color: #505050;
+  font-family: italic;
+  padding: 12px;
+    }
+  </style>
+  <title>Suporte</title>
+</head>
+<body>
+   <div class="tollbar">
+    <a href="/Nshop/index.html"><button class="botao-voltar">
+      <svg xmlns="http://www.w3.org/2000/svg" class="arrow" fill="none" stroke="#000" stroke-width="2" viewBox="0 0 24 24">
+  <path d="M15 6l-6 6 6 6"/>
+</svg></button></a>
+<div class="sub-tollbar">
+  <h1>Suporte</h1>
+</div>
+  </div>
+  <div class="container-suport">
+  
+  <form action="https://api.web3forms.com/submit" method="POST" class="form-suporte">
+
+  <!-- Chave secreta do Web3Forms -->
+  <input type="hidden" name="access_key" value="8aed40cc-1215-416b-8ec4-61ce2cb65959">
+
+  <div class="campo-form">
+    <label for="nome">Nome</label>
+    <input type="text" id="nome" name="nome" placeholder="Digite o seu nome" required>
+  </div>
+  
+  <div class="campo-form">
+    <label for="sobreNome">Sobre Nome</label>
+    <input type="text" id="sobreNome" name="sobreNome" placeholder="Digite o seu sobrenome" required>
+  </div>
+
+  <div class="campo-form">
+    <label for="mensagem">Assunto</label>
+    <textarea id="mensagem" name="mensagem" cols="30" rows="6" placeholder="Digite a sua mensagem..." required></textarea>
+  </div>
+
+  <button type="submit" class="botao-enviar">Enviar</button>
+</form>
+ <div id="resultado" class="resultado"></div>
+</div>
+  <footer>&copy; 2025 NShop. Todos os direitos reservados</footer>
+<script src="/Nshop/js/index.js"></script>
+<script>
+document.querySelector(".form-suporte").addEventListener("submit", function(e) {
+  e.preventDefault();
+  const form = e.target;
+
+  fetch(form.action, {
+    method: "POST",
+    body: new FormData(form)
+  })
+  .then(() => {
+    document.getElementById("resultado").innerText = "Mensagem enviada com sucesso!";
+    form.reset();
+  })
+  .catch(() => {
+    document.getElementById("resultado").innerText = "Erro ao enviar. Tente novamente.";
+  });
+});
+</script>
+</body>
+</html>

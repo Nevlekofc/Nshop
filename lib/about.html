@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/Nshop/css/index.css">
+  <script src="https://kit.fontawesome.com/37b18b4a29.js" crossorigin="anonymous"></script>
+  <title>nevlek ecomerce</title>
+  <style>
+     body {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+   p {
+     font-size: 15px;
+      margin-bottom: 15px;
+    }
+    h2 {
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+  .container {
+    border-radius: 13px;
+    padding: 12px 16px;
+    margin: 70px auto 0 auto;
+    width: calc(100% - 1.5rem);
+    max-width: 900px;
+    background: var(--bg-modal);
+    box-sizing: border-box;
+    }
+
+    .valores {
+      margin-block-start: 20px;
+      padding: 6px;
+      border-radius: 12px;
+      background: var(--bg-card);
+      box-shadow: 0 0 8px rgba(0,0,0,0.05);
+    }
+    .valores ul {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 10px;
+    }
+    .valores li {
+      margin-bottom: 10px;
+      padding-left: 20px;
+      position: relative;
+    }
+    .valores li::before {
+      content: "✔";
+      color: #1b9eb5;
+      left: 0;
+      position: absolute;
+    }
+    footer {
+      text-align: center;
+      color: #505050;
+      font-family: italic;
+      padding: 12px;
+    }
+  </style>
+</head>
+<body>
+	<header>
+  <nav class="navbar">
+    <button class="toggle" aria-label="Abrir menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <div class="brand">
+      <!-- <img src="imagens/logotipo/nvl_logo.png" alt="Logo" className="logo"> -->
+      <span class="titulo" id="titulo">n<span>Shop</span></span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="/Nshop/index.html">Inicio</a></li>
+      <li><a href="#" id="linkPerfil">Perfil</a></li>
+      <li><a href="/Nshop/lib/about.html">About</a></li>
+      <li><a href="/Nshop/lib/perguntas.html">Ajuda</a></li>
+    </ul>
+  </nav>
+	</header>
+  
+  <div class="container">
+    <h2 class="container-historia">Nossa História</h2>
+    <p>Fundado com a missão de tornar a experiência de compra online mais acessível e confiável, nosso Nshop surgiu para conectar pessoas a produtos de qualidade, com praticidade, segurança e atendimento diferenciado.</p>
+    
+    <h2>O Que Fazemos</h2>
+    <p>Oferecemos uma ampla variedade de produtos, com foco em tecnologia, moda, eletrônicos e utilidades, entregando em todo o país com agilidade e transparência.</p>
+    
+    <div class="valores">
+      <h2>Nossos Valores</h2>
+      <ul>
+        <li>Atendimento humano e eficiente</li>
+        <li>Compromisso com o cliente</li>
+        <li>Segurança nas transações</li>
+        <li>Transparência em todos os processos</li>
+        <li>Qualidade e inovação</li>
+      </ul>
+    </div>
+    
+  </div>
+  <footer>&copy; 2025 NShop. Todos os direitos reservados</footer>
+  <script src="/Nshop/js/index.js"></script>
+ <script src="/Nshop/js/global.js" defer></script>
+ 
+<script>
+  // JS para abrir/fechar menu MOBILE
+  const toggle = document.querySelector('.toggle')
+  const navLinks = document.querySelector('.nav-links')
+  
+  toggle.addEventListener('click', () => {
+    const expanded = toggle.getAttribute('aria-expanded') === true
+    toggle.setAttribute('aria-expanded', !expanded)
+    navLinks.classList.toggle('open')
+    toggle.classList.toggle('active')
+  })
+    // Fecha o menu ao aumentar tela
+    window.addEventListener('resize', () => {
+      if(window.innerWidth > 900) {
+        navLinks.classList.remove('open')
+        toggle.classList.remove('active')
+        toggle.setAttribute('aria-expanded', false)
+      }
+    })
+   // mantem o link seleçionado na navbar
+const links = document.querySelectorAll('.nav-links a');
+const currentPath = window.location.pathname.split('/').pop(); // pega só o arquivo atual
+
+links.forEach(link => {
+  const linkPath = link.getAttribute('href').split('/').pop(); // pega só o arquivo do link
+
+  if (linkPath === currentPath) {
+    link.classList.add('active');
+  }
+});
+</script>
+</body>
+</html>
