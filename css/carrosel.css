@@ -1,0 +1,40 @@
+.carrossel {
+  max-width: 100%;
+  overflow: hidden;
+  margin: 1px auto 0 auto;
+  background: var(--bg-carossel);
+  position: relative;
+  box-sizing: border-box;
+  padding: 0 1px;
+  margin-top: 65px;
+}
+.carrossel-item {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+.itemCarosel {
+  width: 100%;
+  margin: 10px auto;
+  height: 400px;
+  flex-shrink: 0;
+  transition: filter 0.5s ease;
+}
+.itemCarosel img {
+  padding: 1px;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  border-radius: 8px;
+}
+
+/* Imagem desfocada */
+.itemCarosel.blur {
+  filter: blur(4px);
+  background: none;
+  opacity: 0;
+}
+@media (max-width: 700px) {
+  .itemCarosel {
+    height: 200px;
+  }
+}

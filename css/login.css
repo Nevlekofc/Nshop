@@ -1,0 +1,266 @@
+:root {
+  --primary: #00eeffc0;
+  --border: #d4d7dd;
+  --background: #f8f9fa;
+  --panel-bg: #fff;
+  --label: #666;
+  --error: #d25c5c;
+  --btn-bg: #04b9c6c0;
+  --btn-hover: #398b90;
+  --radius: 10px;
+}
+
+/* ✅ Modal invisível por padrão (controlado via classe .oculto) */
+.auth-content.oculto {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+/* ✅ Fundo escuro / container do modal */
+.auth-content {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9998;
+  transition:
+    opacity 0.4s cubic-bezier(0.4,0,0.2,1),
+    visibility 0.4s;
+}
+
+/* ✅ Caixa do modal */
+.auth-container {
+  background: var(--bag-login);
+  border-radius: var(--radius);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  width: 100%;
+  max-width: 370px;
+  padding: 2rem 1.7rem;
+  animation: modalFaded .35s ease forwards;
+  position: relative;
+}
+
+/* ✅ Animação de entrada */
+@keyframes modalFaded {
+  from {
+    transform: translateY(-45px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ✅ Tabs superiores */
+.auth-tabs {
+  display: flex;
+  border-bottom: 1.5px solid var(--border);
+  margin-bottom: 1.5rem;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.auth-tab {
+  flex: 1;
+  background: none;
+  border: none;
+  font-size: 1.01rem;
+  color: var(--label);
+  padding: 0.8rem 0;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: color .18s, border-bottom-color .22s;
+}
+
+.auth-tab.active {
+  color: var(--texto);
+  border-bottom: 2px solid var(--primary);
+  font-weight: 500;
+}
+
+/* ✅ Botão fechar (X) */
+.close-btn {
+  position: absolute;
+  top: -2.2rem;
+  right: -1.5rem;
+  outline: none;
+  padding: 12px;
+  user-select: none;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #6c6c6c;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  color: #ed5c5c;
+}
+
+/* ✅ Área de painéis (login / registro) */
+.auth-panels {
+  position: relative;
+  min-height: 340px;
+}
+
+/* Base dos painéis (ambos empilhados, só o active aparece) */
+.auth-panel {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(16px);
+  transition: opacity .39s, transform .39s;
+  z-index: 1;
+  background: transparent;
+  display: none; /* somado ao active abaixo para evitar flicker */
+}
+
+.auth-panel.active {
+  display: block;
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+  z-index: 2;
+}
+
+.auth-panel h2 {
+  font-size: 1.27rem;
+  font-weight: 600;
+  color: var(--texto);
+  margin-bottom: 1.1rem;
+  letter-spacing: .02em;
+}
+
+/* ✅ Campo com label flutuante */
+.field {
+  position: relative;
+  margin-bottom: 1.15rem;
+}
+
+.field input {
+  background: var(--bg-input);
+  border: 1px solid rgb(7, 9, 9);
+  border-radius: 6px;
+  color: var(--text);
+  width: 100%;
+  padding: 1.02em 1em .5em 1em;
+  font-size: 1.03rem;
+  box-sizing: border-box;
+  outline: none;
+  transition:
+    border-color .18s,
+    box-shadow .13s,
+    background .15s;
+}
+
+.field input:hover {
+  border-color: #5ce4ed;
+}
+
+.field label {
+  position: absolute;
+  left: 1rem;
+  top: 1.23rem;
+  color: var(--label);
+  font-size: 1.02rem;
+  pointer-events: none;
+  background: transparent;
+  transition:
+    top .14s cubic-bezier(.42,.15,.58,.93),
+    font-size .11s,
+    color .18s;
+}
+
+/* Flutuação da label */
+.field input:focus + label,
+.field input:not(:placeholder-shown) + label {
+  top: .23rem;
+  font-size: .83rem;
+  color: var(--primary);
+}
+
+.password-field {
+  position: relative;
+}
+/* Espaço extra para o botão de olho */
+.password-field input {
+  padding-right: 2.6rem; /* espaço para o botão */
+}
+
+.toggle-pass {
+  position: absolute;
+  right: .6rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  width: 22px;
+  height: 22px;
+  z-index: 4;
+  padding: 0;
+}
+
+/* Estrutura dos olhos */
+.toggle-pass .eye {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity .20s ease;
+  pointer-events: none;
+}
+
+/* Olho aberto padrão */
+.toggle-pass .eye.open {
+  opacity: 1;
+}
+
+/* Quando .show está ativa → mostra olho fechado */
+.toggle-pass.show .eye.open {
+  opacity: 0;
+}
+
+.toggle-pass .eye.closed {
+  opacity: 0;
+}
+
+.toggle-pass.show .eye.closed {
+  opacity: 1;
+}
+
+/* ✅ Botão principal (Cadastrar / Entrar) */
+.auth-btn {
+  width: 100%;
+  background: var(--btn-bg);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.07rem;
+  font-weight: 500;
+  cursor: pointer;
+  height: 38px;
+  transition: background .18s;
+}
+
+.auth-btn:hover,
+.auth-btn:focus {
+  background: var(--btn-hover);
+}
+
+/* ✅ Mensagem de erro */
+.error-msg {
+  margin-top: .8rem;
+  font-size: .97rem;
+  color: var(--error);
+  min-height: 16px;
+  text-align: center;
+}
