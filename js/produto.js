@@ -1663,5 +1663,11 @@ document.addEventListener("DOMContentLoaded", () => {
   if (typeof selecionarOpcao === "function") {
     window.selecionarOpcao = selecionarOpcao;
   }
+  if (typeof removerItem === "function") {
+    window.removerItem = removerItem;
+  }
+  if (typeof alterarQtd === "function") {
+    window.alterarQtd = alterarQtd;
+  }
   
  }
