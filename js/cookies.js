@@ -44,7 +44,6 @@ const banner = document.getElementById('cookie-banner')
       applyPreferences(prefs)
     }
     
-    // Aqui você conecta scripts reais
     function applyPreferences(prefs){
       // Se analytics permitido, carregar Google Analytics
       if(prefs.analytics){

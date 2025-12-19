@@ -1089,10 +1089,7 @@ const produtos = [
 produtos.forEach((p, i) => p.id = i + 1);
 
 
-/************************************************************
- * 2) VARIÁVEIS GLOBAIS
- ************************************************************/
-
+// Variáveis globais 
 const PRODUTOS_POR_PAGINA = 24;
 let indiceAtual = 0;
 
@@ -1102,7 +1099,7 @@ let produtoLista = null;
 // ✅ Modo de pagamento selecionado
 let ModoSelecionar = "";
 
-// ✅ Elementos do carrinho (podem ser null em páginas sem carrinho)
+// ✅ Elementos do carrinho
 const contadorEl       = document.getElementById("contador")        || null;
 const carrinhoItensEl  = document.getElementById("carrinho-itens")  || null;
 const carrinhoTotalEl  = document.getElementById("carrinho-total")  || null;
@@ -1110,10 +1107,7 @@ const modalCarrinhoEl  = document.getElementById("modal-carrinho")  || null;
 const btnPagarCarrinho = document.getElementById("carrinho-pagar")  || null;
 
 
-/************************************************************
- * 3) CRIAÇÃO DOS CARDS DE PRODUTO
- ************************************************************/
-
+// Cards dos produtos
 function criarProdutoCard(produto) {
   const card = document.createElement('div');
   card.className = 'card-produto';
@@ -1152,9 +1146,7 @@ function criarProdutoCard(produto) {
 }
 
 
-/************************************************************
- * 4) RENDERIZAÇÃO DOS PRODUTOS
- ************************************************************/
+// Dedetização de produtos
 
 function renderizarProdutos(start, count) {
   if (!produtoLista) {
@@ -1202,10 +1194,7 @@ function configurarRolagemInfinita() {
 }
 
 
-/************************************************************
- * 5) MODAL DO PRODUTO
- ************************************************************/
-
+// Modal produto 
 function abrirModalProduto(produto) {
   window.produtoAtual = produto;
 
@@ -1270,10 +1259,7 @@ document.addEventListener('click', (event) => {
 });
 
 
-/************************************************************
- * 6) BOTTOM SHEET (PAGAMENTO)
- ************************************************************/
-
+// BottomShett
 function abrirSheet() {
   const bottom      = document.getElementById('bottomSheet');
   const overlay     = document.getElementById('overlay');
@@ -1330,10 +1316,7 @@ window.addEventListener("keydown", (e) => {
 });
 
 
-/************************************************************
- * 7) FORMULÁRIO DE PAGAMENTO
- ************************************************************/
-
+// Formulário pagamento
 function selecionarOpcao(metodo, event) {
   ModoSelecionar = metodo;
 
@@ -1469,9 +1452,7 @@ function confirmarPagamento() {
 }
 
 
-/************************************************************
- * 8) CARRINHO
- ************************************************************/
+// Carrinho
 
 function carregarCarrinho() {
   const salvo = localStorage.getItem("carrinho");
@@ -1611,20 +1592,16 @@ if (btnPagarCarrinho) {
 }
 
 
-/************************************************************
- * 9) INICIALIZAÇÃO GERAL
- ************************************************************/
+// Todo DOM 
 
 document.addEventListener("DOMContentLoaded", () => {
-  // ✅ Lista de produtos
+
   produtoLista = document.getElementById('listaDoproduto');
 
   if (produtoLista) {
     renderizarProdutos(0, PRODUTOS_POR_PAGINA);
     configurarRolagemInfinita();
   }
-
-  // ✅ Carrinho (contador e render inicial)
   atualizarContador();
   renderizarCarrinho();
 });
@@ -1659,16 +1636,12 @@ document.addEventListener("DOMContentLoaded", () => {
   if (typeof irParaPagamento === "function") {
     window.irParaPagamento = irParaPagamento;
   }
-
-  // Modal de produto
   if (typeof abrirModalProduto === "function") {
     window.abrirModalProduto = abrirModalProduto;
   }
   if (typeof fecharModalProduto === "function") {
     window.fecharModalProduto = fecharModalProduto;
   }
-
-  // Bottom sheet / pagamento
   if (typeof abrirBottomSheet === "function") {
     window.abrirBottomSheet = abrirBottomSheet;
   }

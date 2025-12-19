@@ -37,7 +37,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   window.addEventListener("online", syncPendingProfile);
 
-  // 🔥 COMPAT: correto
   firebase.auth().onAuthStateChanged((user) => {
     if (!user) {
       window.location.href = "/Nshop/index.html";
@@ -67,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
     window.location.href = "/Nshop/index.html";
   });
 
-  // 🔥 AGORA SIM: função global
+   // função global
   window.openEditor = function () {
     const isOpen = editor.style.display === "block";
 
