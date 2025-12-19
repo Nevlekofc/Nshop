@@ -1,5 +1,4 @@
-// ✅ Controla a UI do modal de autenticação (sem depender de Firebase diretamente)
-// Usa window.handleRegister e window.handleLogin definidos em auth.js
+// UI do modal de autenticação 
 console.log("modal-auth.js Inicio com sucesso.");
 document.addEventListener("DOMContentLoaded", () => {
   const modalEl = document.getElementById("modal-login");
@@ -16,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
-  // ✅ Abrir modal
+  // Abrir modal
   function abrirModalAuth() {
     modalEl.style.display = "flex";
     requestAnimationFrame(() => {
@@ -25,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.style.overflow = "hidden";
   }
 
-  // ✅ Fechar modal
+  // Fechar modal
   function fecharModalAuth() {
     modalEl.classList.add("oculto");
     document.body.style.overflow = "";
@@ -62,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // ✅ Tabs
+  // Tabs
   function ativarAba(tipo) {
     const isRegister = tipo === "register";
     if (tabRegister && tabLogin && panelRegister && panelLogin) {
@@ -91,7 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ✅ Mostrar/ocultar senha
+  // Mostrar/ocultar senha
  togglePassBtns.forEach((btn) => {
   btn.addEventListener("click", (e) => {
     e.preventDefault();
@@ -105,12 +104,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const isPassword = input.type === "password";
     input.type = isPassword ? "text" : "password";
 
-    // ✅ Alterna a classe .show
+    // Alterna a classe .show
     btn.classList.toggle("show", isPassword);
   });
 });
 
-  // ✅ SUBMITS (cadastro / login) integrados com auth.js
+  // SUBMITS (cadastro / login)
 
   const registerForm = document.getElementById("register-panel");
   const loginForm = document.getElementById("login-panel");
@@ -151,7 +150,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const res = await window.handleRegister({ nome, email, senha, errorBox });
 
       if (res.ok) {
-        // Sucesso → alterna para aba de login ou fecha modal
+        // Sucesso alterna para aba de login ou fecha modal
         ativarAba("login");
       }
     });

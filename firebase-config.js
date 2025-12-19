@@ -1,6 +1,5 @@
 console.log("🔥 firebase-config.js INICIOU");
 
-// Firebase compat estável
 import "https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js";
 import "https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js";
 

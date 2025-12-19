@@ -11,9 +11,7 @@ const userNameEl  = document.getElementById("userName");
 const btnLogoutEl = document.getElementById("btnLogout");
 const btnLoginEl  = document.getElementById("logarConta");
 
-// ======================================================
 //  ATUALIZA UI
-// ======================================================
 function atualizarUIUsuario(user) {
   if (!user) {
     window.usuarioLogado = null;
@@ -48,17 +46,17 @@ function atualizarUIUsuario(user) {
   }
 }
 
-// ======================================================
+
 //  OBSERVADOR
-// ======================================================
+
 firebase.auth().onAuthStateChanged((user) => {
   console.log("onAuthStateChanged:", user?.email || "sem usuário");
   atualizarUIUsuario(user);
 });
 
-// ======================================================
+
 //  LOGOUT
-// ======================================================
+
 if (btnLogoutEl) {
   btnLogoutEl.addEventListener("click", async (e) => {
     e.preventDefault();
@@ -71,9 +69,9 @@ if (btnLogoutEl) {
   });
 }
 
-// ======================================================
+
 //  PROTEÇÃO DE PÁGINAS
-// ======================================================
+
 window.exigirLoginAntes = function (acaoSeLogado) {
   if (window.usuarioLogado) {
     acaoSeLogado();
@@ -88,9 +86,9 @@ window.protegerPagina = function () {
   });
 };
 
-// ======================================================
+
 //  CADASTRO
-// ======================================================
+
 window.handleRegister = async function ({ nome, email, senha, errorBox }) {
   try {
     if (errorBox) errorBox.textContent = "Cadastrando...";
@@ -119,9 +117,9 @@ window.handleRegister = async function ({ nome, email, senha, errorBox }) {
   }
 };
 
-// ======================================================
+
 //  LOGIN
-// ======================================================
+
 window.handleLogin = async function ({ email, senha, errorBox }) {
   try {
     if (errorBox) errorBox.textContent = "Entrando...";
@@ -145,9 +143,9 @@ window.handleLogin = async function ({ email, senha, errorBox }) {
   }
 };
 
-// ======================================================
+
 //  TRADUÇÃO DE ERROS
-// ======================================================
+
 function traduzErroAuth(code) {
   switch (code) {
     case "auth/email-already-in-use":
